@@ -28,6 +28,7 @@ const theme = createTheme({
 		buttonPrimaryBackground: palette.lightGreen,
 		textPrimaryColor: palette.lightGreen,
 		mainBackground: palette.white,
+		textBlue: palette.blue,
 		info: palette.lightGrey,
 		info2: palette.darkGrey,
 	},

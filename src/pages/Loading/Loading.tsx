@@ -50,8 +50,14 @@ const Loading = ({ navigation }: AppNavigationProps<"Loading">) => {
 				position="absolute"
 				marginBottom="l"
 			>
-				<Text color="info">from</Text>
-				<Text color="textPrimaryColor">FACEBOOK</Text>
+				<Text color="info2">from</Text>
+				<Text
+					color="textPrimaryColor"
+					fontSize={width * 0.04}
+					marginTop="xs"
+				>
+					FACEBOOK
+				</Text>
 			</Box>
 			<StatusBar style="light" />
 		</Box>
