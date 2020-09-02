@@ -8,7 +8,7 @@ import {
 } from "@shopify/restyle"
 import { ImageStyle, TextStyle, ViewStyle } from "react-native"
 
-const palette = {
+export const palette = {
 	tealGreen: "#128C7E",
 	tealGreenDark: "#075E54",
 	lightGreen: "#25D366",
@@ -26,6 +26,7 @@ const theme = createTheme({
 		primary: palette.tealGreen,
 		secondary: palette.tealGreenDark,
 		buttonPrimaryBackground: palette.lightGreen,
+		textPrimaryColor: palette.lightGreen,
 		mainBackground: palette.white,
 		info: palette.lightGrey,
 		info2: palette.darkGrey,
@@ -86,7 +87,6 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => (
 	<ReStyleThemeProvider theme={theme}>{children}</ReStyleThemeProvider>
 )
 
-export type Palette = typeof palette
 export type Theme = typeof theme
 export const Box = createBox<Theme>()
 export const Text = createText<Theme>()
