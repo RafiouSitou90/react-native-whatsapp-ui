@@ -21,12 +21,12 @@ const AppStackNavigator = () => {
 
 const AppContainer = () => {
 	const [isLoading, setIsLoading] = useState(true)
-	const [user, setUser] = useState(false)
+	const [user /*, setUser*/] = useState(false)
 
 	useEffect(() => {
 		setTimeout(() => {
 			setIsLoading(!isLoading)
-		}, 2000)
+		}, 500)
 	}, [])
 
 	return (

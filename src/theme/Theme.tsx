@@ -29,6 +29,7 @@ const theme = createTheme({
 		textPrimaryColor: palette.lightGreen,
 		mainBackground: palette.white,
 		textBlue: palette.blue,
+		textBlack: palette.black,
 		info: palette.lightGrey,
 		info2: palette.darkGrey,
 	},
