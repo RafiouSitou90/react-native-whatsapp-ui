@@ -1,17 +1,19 @@
-import React from "react"
-import { Dimensions } from "react-native"
 import { Feather as Icon } from "@expo/vector-icons"
+import React from "react"
+import { Dimensions, TextInput } from "react-native"
+import { BorderlessButton, RectButton } from "react-native-gesture-handler"
 
 import { AuthenticationRoutes } from "../../../routes"
 import { Box, Text, useTheme } from "../../../theme"
-import { BorderlessButton, RectButton } from "react-native-gesture-handler"
 
 const { width, height } = Dimensions.get("window")
 
 const Login = ({}: AuthenticationRoutes) => {
 	const theme = useTheme()
 
-	function handleNext() {}
+	function handleNext() {
+		alert("Next button clicked")
+	}
 
 	return (
 		<Box
@@ -53,7 +55,13 @@ const Login = ({}: AuthenticationRoutes) => {
 				</Box>
 			</Box>
 
-			<Box flex={0.8} marginHorizontal="s" marginVertical="m">
+			<Box
+				flex={0.8}
+				marginHorizontal="s"
+				marginVertical="m"
+				position="absolute"
+				top={height * 0.1}
+			>
 				<Box>
 					<Text textAlign="center" color="textBlack" lineHeight={20}>
 						WhatsApp will send a SMS message to verify your phone
@@ -88,15 +96,30 @@ const Login = ({}: AuthenticationRoutes) => {
 							>
 								<Box
 									flexDirection="row"
-									justifyContent="space-between"
+									justifyContent="center"
+									alignItems="center"
 								>
-									<Box>
+									<Box width="25%">
 										<Text fontSize={16} color="info2">
 											+
 										</Text>
 									</Box>
-									<Box>
-										<Text fontSize={16}>55</Text>
+									<Box width="75%">
+										<TextInput
+											textAlignVertical="center"
+											keyboardType="numeric"
+											maxLength={3}
+											placeholderTextColor={
+												theme.colors.info
+											}
+											placeholder="999"
+											defaultValue="999"
+											style={{
+												fontSize: 16,
+												paddingBottom: 2,
+												textAlign: "center",
+											}}
+										/>
 									</Box>
 								</Box>
 							</Box>
@@ -108,8 +131,32 @@ const Login = ({}: AuthenticationRoutes) => {
 								width="70%"
 								borderBottomColor="primary"
 							>
-								<Text fontSize={16}>Phone number</Text>
+								<TextInput
+									keyboardType="phone-pad"
+									placeholderTextColor={theme.colors.info}
+									placeholder="Phone number"
+									style={{
+										fontSize: 16,
+										paddingBottom: 2,
+									}}
+									returnKeyLabel="Next"
+									returnKeyType="next"
+									onSubmitEditing={() => handleNext()}
+								/>
 							</Box>
+						</Box>
+						<Box
+							justifyContent="center"
+							alignItems="center"
+							marginTop="s"
+						>
+							<Text
+								fontSize={15}
+								color="info2"
+								textAlign="center"
+							>
+								Operator charges for SMS may apply
+							</Text>
 						</Box>
 					</Box>
 				</Box>
