@@ -22,7 +22,6 @@ export type AuthenticationRoutes = {
 }
 
 export type AppRoutes = {
-	Loading: undefined
 	Authentication: undefined
 	Home: undefined
 }
