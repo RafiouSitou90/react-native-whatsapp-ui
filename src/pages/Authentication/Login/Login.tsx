@@ -1,18 +1,40 @@
 import { Feather as Icon } from "@expo/vector-icons"
 import React from "react"
-import { Dimensions, TextInput } from "react-native"
+import { Alert, Dimensions, TextInput } from "react-native"
 import { BorderlessButton, RectButton } from "react-native-gesture-handler"
 
 import { AuthenticationRoutes } from "../../../routes"
 import { Box, Text, useTheme } from "../../../theme"
+import { useNavigation } from "@react-navigation/native"
 
 const { width, height } = Dimensions.get("window")
 
 const Login = ({}: AuthenticationRoutes) => {
+	const navigation = useNavigation()
 	const theme = useTheme()
 
 	function handleNext() {
-		alert("Next button clicked")
+		Alert.alert(
+			"We will be verifying the phone number: ",
+			"+999 999 999 999",
+			[
+				{
+					text: "EDIT",
+					onPress: () => true,
+					style: "cancel",
+				},
+				{
+					text: undefined,
+					onPress: () => true,
+					style: undefined,
+				},
+				{
+					text: "OK",
+					onPress: () => navigation.navigate("CheckNumber"),
+				},
+			],
+			{ cancelable: false }
+		)
 	}
 
 	return (
@@ -31,7 +53,7 @@ const Login = ({}: AuthenticationRoutes) => {
 				justifyContent="center"
 				alignItems="center"
 			>
-				<Box alignSelf="center">
+				<Box alignSelf="center" style={{ marginLeft: width * 0.075 }}>
 					<Text
 						fontSize={width * 0.06}
 						fontWeight="bold"
@@ -42,7 +64,7 @@ const Login = ({}: AuthenticationRoutes) => {
 					</Text>
 				</Box>
 
-				<Box marginHorizontal="s">
+				<Box marginLeft="s">
 					<BorderlessButton
 						onPress={() => alert("Press info button")}
 					>
@@ -77,7 +99,18 @@ const Login = ({}: AuthenticationRoutes) => {
 						alignItems="center"
 					>
 						<Box>
-							<Text fontSize={16}>Country name</Text>
+							<TextInput
+								textAlignVertical="center"
+								keyboardType="ascii-capable"
+								placeholderTextColor={theme.colors.info}
+								placeholder="Country name"
+								defaultValue=""
+								style={{
+									fontSize: 16,
+									paddingBottom: 2,
+									textAlign: "center",
+								}}
+							/>
 						</Box>
 					</Box>
 					<Box width={width * 0.7} justifyContent="center">

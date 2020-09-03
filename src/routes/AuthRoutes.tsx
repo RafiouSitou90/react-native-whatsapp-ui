@@ -1,7 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack"
 import React from "react"
 
-import { Login, Welcome } from "../pages"
+import { Login, Welcome, CheckNumber } from "../pages"
 import { AuthenticationRoutes } from "./Navigation"
 
 const AuthStack = createStackNavigator<AuthenticationRoutes>()
@@ -11,6 +11,7 @@ const AuthStackNavigator = () => {
 		<AuthStack.Navigator headerMode="none" initialRouteName="Welcome">
 			<AuthStack.Screen name="Welcome" component={Welcome} />
 			<AuthStack.Screen name="Login" component={Login} />
+			<AuthStack.Screen name="CheckNumber" component={CheckNumber} />
 		</AuthStack.Navigator>
 	)
 }
