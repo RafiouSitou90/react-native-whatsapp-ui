@@ -19,10 +19,10 @@ export interface AuthNavigationProps<
 export type AuthenticationRoutes = {
 	Welcome: undefined
 	Login: undefined
+	CheckNumber: undefined
 }
 
 export type AppRoutes = {
-	Loading: undefined
 	Authentication: undefined
 	Home: undefined
 }

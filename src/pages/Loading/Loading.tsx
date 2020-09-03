@@ -1,31 +1,13 @@
 import { StatusBar } from "expo-status-bar"
-import React, { useEffect } from "react"
+import React from "react"
 import { Dimensions, Image } from "react-native"
 
 import logo from "../../assets/logo.png"
-import { AppNavigationProps } from "../../routes"
 import { Box, Text } from "../../theme"
 
 const { width } = Dimensions.get("window")
 
-const Loading = ({ navigation }: AppNavigationProps<"Loading">) => {
-	useEffect(() => {
-		delay()
-	}, [])
-
-	function delay() {
-		setTimeout(() => {
-			navigation.navigate("Authentication")
-
-			/*			navigation.dispatch(
-				CommonActions.reset({
-					index: 0,
-					routes: [{ name: "Authentication" }],
-				})
-			)*/
-		}, 2000)
-	}
-
+const Loading = () => {
 	return (
 		<Box
 			flex={1}
@@ -33,12 +15,12 @@ const Loading = ({ navigation }: AppNavigationProps<"Loading">) => {
 			alignItems="center"
 			backgroundColor="mainBackground"
 		>
-			<Box flex={0.3}>
+			<Box flex={0.35}>
 				<Image
 					source={logo}
 					style={{
-						width: width * 0.3,
-						height: width * 0.3,
+						width: width * 0.25,
+						height: width * 0.25,
 					}}
 				/>
 			</Box>

@@ -2,7 +2,7 @@ import React from "react"
 import { SafeAreaProvider } from "react-native-safe-area-context"
 
 import { LoadAssets } from "./src/components"
-import AppStackNavigator from "./src/routes/AppRoutes"
+import AppContainer from "./src/routes/AppRoutes"
 import { ThemeProvider } from "./src/theme"
 
 export default function App() {
@@ -10,7 +10,7 @@ export default function App() {
 		<ThemeProvider>
 			<LoadAssets>
 				<SafeAreaProvider>
-					<AppStackNavigator />
+					<AppContainer />
 				</SafeAreaProvider>
 			</LoadAssets>
 		</ThemeProvider>

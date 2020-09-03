@@ -1,16 +1,17 @@
 import React from "react"
 import { Dimensions, Image, Linking } from "react-native"
-import { AuthNavigationProps } from "../../../routes"
 import { Box, Text, useTheme } from "../../../theme"
 
 import bgImage from "../../assets/bgImage.jpg"
 import { RectButton } from "react-native-gesture-handler"
+import { useNavigation } from "@react-navigation/native"
 
 const { width, height } = Dimensions.get("window")
 const size = width * 0.7
 
-const Welcome = ({}: AuthNavigationProps<"Welcome">) => {
+const Welcome = () => {
 	const theme = useTheme()
+	const navigation = useNavigation()
 
 	async function handlePrivacy() {
 		await Linking.openURL("https://www.whatsapp.com/legal/#privacy-policy")
@@ -20,6 +21,10 @@ const Welcome = ({}: AuthNavigationProps<"Welcome">) => {
 		await Linking.openURL(
 			"https://www.whatsapp.com/legal/#terms-of-service"
 		)
+	}
+
+	function handleAgree() {
+		navigation.navigate("Login")
 	}
 
 	return (
@@ -82,7 +87,7 @@ const Welcome = ({}: AuthNavigationProps<"Welcome">) => {
 
 				<Box marginTop="ml">
 					<RectButton
-						onPress={() => true}
+						onPress={handleAgree}
 						style={{
 							height: height * 0.06,
 							width: width * 0.8,
@@ -109,7 +114,7 @@ const Welcome = ({}: AuthNavigationProps<"Welcome">) => {
 				alignItems="center"
 				bottom={0}
 				position="absolute"
-				style={{ marginBottom: height * 0.02 }}
+				style={{ marginBottom: height * 0.03 }}
 			>
 				<Text color="info2">from</Text>
 				<Text

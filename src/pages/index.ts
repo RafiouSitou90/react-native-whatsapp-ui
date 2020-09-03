@@ -1,2 +1,2 @@
 export { default as Loading } from "./Loading"
-export { Welcome } from "./Authentication"
+export { Welcome, Login, CheckNumber } from "./Authentication"
