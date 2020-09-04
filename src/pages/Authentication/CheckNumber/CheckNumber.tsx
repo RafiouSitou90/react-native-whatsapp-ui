@@ -14,7 +14,7 @@ const CheckNumber = () => {
 
 	useEffect(() => {
 		setTimeout(() => {
-			navigation.navigate("Login")
+			navigation.navigate("ProfileInfo")
 		}, 2000)
 	}, [])
 

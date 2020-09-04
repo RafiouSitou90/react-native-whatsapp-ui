@@ -1,4 +1,4 @@
-import { RouteProp, CompositeNavigationProp } from "@react-navigation/native"
+import { CompositeNavigationProp, RouteProp } from "@react-navigation/native"
 import { StackNavigationProp } from "@react-navigation/stack"
 
 export interface AppNavigationProps<RouteName extends keyof AppRoutes> {
@@ -20,6 +20,7 @@ export type AuthenticationRoutes = {
 	Welcome: undefined
 	Login: undefined
 	CheckNumber: undefined
+	ProfileInfo: undefined
 }
 
 export type AppRoutes = {
