@@ -21,6 +21,7 @@ export type AuthenticationRoutes = {
 	Login: undefined
 	CheckNumber: undefined
 	ProfileInfo: undefined
+	Initialization: undefined
 }
 
 export type AppRoutes = {

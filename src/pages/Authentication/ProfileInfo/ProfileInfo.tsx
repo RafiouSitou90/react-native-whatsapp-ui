@@ -4,14 +4,18 @@ import { Dimensions, TextInput } from "react-native"
 import { RectButton } from "react-native-gesture-handler"
 
 import { Box, Text, useTheme } from "../../../theme"
+import { useNavigation } from "@react-navigation/native"
 
 const { width, height } = Dimensions.get("window")
 const size = width * 0.2
 
 const ProfileInfo = () => {
 	const theme = useTheme()
+	const navigation = useNavigation()
 
-	function handleNext() {}
+	function handleNext() {
+		navigation.navigate("Initialization")
+	}
 
 	return (
 		<Box
