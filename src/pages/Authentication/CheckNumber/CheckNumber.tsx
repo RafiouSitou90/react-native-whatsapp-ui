@@ -186,17 +186,17 @@ const CheckNumber = () => {
 						alignItems="center"
 						marginHorizontal="s"
 					>
-						<Box alignSelf="center" width="10%" marginRight="xs">
+						<Box alignSelf="center" marginRight="xs">
 							<MaterialIcons
 								name="textsms"
 								color={theme.colors.info}
-								size={24}
+								size={26}
 							/>
 						</Box>
 						<Box
 							alignSelf="center"
 							justifyContent="flex-start"
-							width="73%"
+							width="70%"
 						>
 							<RectButton
 								onPress={() => true}
@@ -218,7 +218,6 @@ const CheckNumber = () => {
 						</Box>
 						<Box
 							alignSelf="center"
-							width="12%"
 							marginLeft="xs"
 							justifyContent="flex-end"
 							alignItems="flex-end"
@@ -228,8 +227,8 @@ const CheckNumber = () => {
 					</Box>
 					<Box
 						marginVertical="xs"
-						borderBottomWidth={2}
-						borderColor="info2"
+						borderBottomWidth={1}
+						borderColor="info"
 						justifyContent="center"
 						alignSelf="center"
 						width={width * 0.9}
@@ -240,17 +239,17 @@ const CheckNumber = () => {
 						alignItems="center"
 						marginHorizontal="s"
 					>
-						<Box alignSelf="center" width="10%" marginRight="xs">
+						<Box alignSelf="center" marginRight="xs">
 							<MaterialIcons
 								name="phone"
 								color={theme.colors.info}
-								size={24}
+								size={26}
 							/>
 						</Box>
 						<Box
 							alignSelf="center"
 							justifyContent="flex-start"
-							width="73%"
+							width="70%"
 						>
 							<RectButton
 								onPress={() => true}
@@ -270,7 +269,7 @@ const CheckNumber = () => {
 								</Text>
 							</RectButton>
 						</Box>
-						<Box alignSelf="center" width="12%" marginLeft="xs">
+						<Box alignSelf="center" marginLeft="xs">
 							<Text color="info2">99:99</Text>
 						</Box>
 					</Box>
