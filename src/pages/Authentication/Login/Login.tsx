@@ -1,11 +1,11 @@
-import { Feather as Icon } from "@expo/vector-icons"
+import { Feather as Icon, MaterialIcons } from "@expo/vector-icons"
+import { useNavigation } from "@react-navigation/native"
 import React from "react"
-import { Alert, Dimensions, TextInput } from "react-native"
+import { Alert, Dimensions, Linking, TextInput } from "react-native"
 import { BorderlessButton, RectButton } from "react-native-gesture-handler"
 
 import { AuthenticationRoutes } from "../../../routes"
 import { Box, Text, useTheme } from "../../../theme"
-import { useNavigation } from "@react-navigation/native"
 
 const { width, height } = Dimensions.get("window")
 
@@ -34,6 +34,18 @@ const Login = ({}: AuthenticationRoutes) => {
 				},
 			],
 			{ cancelable: false }
+		)
+	}
+
+	async function handleYearsRequired() {
+		await Linking.openURL(
+			"https://www.whatsapp.com/legal/#terms-of-service"
+		)
+	}
+
+	async function handleFacebookEntities() {
+		await Linking.openURL(
+			"https://www.whatsapp.com/legal/#terms-of-service"
 		)
 	}
 
@@ -98,19 +110,27 @@ const Login = ({}: AuthenticationRoutes) => {
 						justifyContent="center"
 						alignItems="center"
 					>
-						<Box>
+						<Box flexDirection="row" justifyContent="space-between">
 							<TextInput
 								textAlignVertical="center"
 								keyboardType="ascii-capable"
 								placeholderTextColor={theme.colors.info}
 								placeholder="Country name"
-								defaultValue=""
+								defaultValue="Brazil"
 								style={{
 									fontSize: 16,
 									paddingBottom: 2,
 									textAlign: "center",
+									width: "90%",
 								}}
 							/>
+							<Box>
+								<MaterialIcons
+									name="arrow-drop-down"
+									size={24}
+									style={{ color: theme.colors.primary }}
+								/>
+							</Box>
 						</Box>
 					</Box>
 					<Box width={width * 0.7} justifyContent="center">
@@ -145,8 +165,8 @@ const Login = ({}: AuthenticationRoutes) => {
 											placeholderTextColor={
 												theme.colors.info
 											}
-											placeholder="999"
-											defaultValue="999"
+											placeholder="000"
+											defaultValue="55"
 											style={{
 												fontSize: 16,
 												paddingBottom: 2,
@@ -168,12 +188,13 @@ const Login = ({}: AuthenticationRoutes) => {
 									keyboardType="phone-pad"
 									placeholderTextColor={theme.colors.info}
 									placeholder="Phone number"
+									defaultValue="61 9 9999 9999"
 									style={{
 										fontSize: 16,
 										paddingBottom: 2,
 									}}
-									returnKeyLabel="Next"
-									returnKeyType="next"
+									returnKeyLabel="Go"
+									returnKeyType="go"
 									onSubmitEditing={() => handleNext()}
 								/>
 							</Box>
@@ -228,9 +249,14 @@ const Login = ({}: AuthenticationRoutes) => {
 
 				<Text color="info2" textAlign="center">
 					You must be{" "}
-					<Text color="textBlue">at least 16 years old</Text> to
-					register. Learn more about how WhatsApp works with{" "}
-					<Text color="textBlue">Facebook entities</Text>.
+					<Text color="textBlue" onPress={handleYearsRequired}>
+						at least 16 years old
+					</Text>{" "}
+					to register. Learn more about how WhatsApp works with{" "}
+					<Text color="textBlue" onPress={handleFacebookEntities}>
+						Facebook entities
+					</Text>
+					.
 				</Text>
 			</Box>
 		</Box>
