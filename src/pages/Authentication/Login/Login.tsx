@@ -16,7 +16,7 @@ const Login = ({}: AuthenticationRoutes) => {
 	function handleNext() {
 		Alert.alert(
 			"We will be verifying the phone number: ",
-			"+999 999 999 999",
+			"+55 61 9 9999 9999",
 			[
 				{
 					text: "EDIT",
@@ -144,7 +144,7 @@ const Login = ({}: AuthenticationRoutes) => {
 								marginTop="s"
 								borderBottomWidth={2}
 								borderBottomColor="primary"
-								width="20%"
+								width="25%"
 								alignItems="flex-start"
 							>
 								<Box
