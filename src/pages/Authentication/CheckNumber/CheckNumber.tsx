@@ -1,5 +1,5 @@
 import { MaterialIcons } from "@expo/vector-icons"
-import { useNavigation } from "@react-navigation/native"
+import { CommonActions, useNavigation } from "@react-navigation/native"
 import React, { useEffect } from "react"
 import { Dimensions, TextInput } from "react-native"
 import { RectButton } from "react-native-gesture-handler"
@@ -14,7 +14,13 @@ const CheckNumber = () => {
 
 	useEffect(() => {
 		setTimeout(() => {
-			navigation.navigate("ProfileInfo")
+			// navigation.navigate("ProfileInfo")
+			navigation.dispatch(
+				CommonActions.reset({
+					index: 0,
+					routes: [{ name: "ProfileInfo" }],
+				})
+			)
 		}, 2000)
 	}, [])
 

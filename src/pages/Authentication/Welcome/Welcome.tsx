@@ -4,7 +4,7 @@ import { Box, Text, useTheme } from "../../../theme"
 
 import bgImage from "../../assets/bgImage.jpg"
 import { RectButton } from "react-native-gesture-handler"
-import { useNavigation } from "@react-navigation/native"
+import { useNavigation, CommonActions } from "@react-navigation/native"
 
 const { width, height } = Dimensions.get("window")
 const size = width * 0.7
@@ -24,7 +24,14 @@ const Welcome = () => {
 	}
 
 	function handleAgree() {
-		navigation.navigate("Login")
+		// navigation.navigate("Login")
+
+		navigation.dispatch(
+			CommonActions.reset({
+				index: 0,
+				routes: [{ name: "Login" }],
+			})
+		)
 	}
 
 	return (
