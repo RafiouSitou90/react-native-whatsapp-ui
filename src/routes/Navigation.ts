@@ -24,6 +24,13 @@ export type AuthenticationRoutes = {
 	Initialization: undefined
 }
 
+export type AppTabRoutes = {
+	Camera: undefined
+	Chat: undefined
+	Status: undefined
+	Call: undefined
+}
+
 export type AppRoutes = {
 	Authentication: undefined
 	Home: undefined

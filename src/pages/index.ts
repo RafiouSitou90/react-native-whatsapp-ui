@@ -6,3 +6,4 @@ export {
 	ProfileInfo,
 	Initialization,
 } from "./Authentication"
+export { Camera, Call, Chat, Status } from "./Home"
