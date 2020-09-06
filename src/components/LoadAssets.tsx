@@ -39,6 +39,7 @@ interface LoadAssetsProps {
 
 const LoadAssets = ({ assets, fonts, children }: LoadAssetsProps) => {
 	const [isNavigationReady, setIsNavigationReady] = useState(!__DEV__)
+	// @ts-ignore
 	const [initialState, setInitialState] = useState<InitialState | undefined>()
 	const ready = useLoadAssets(assets || [], fonts || {})
 
@@ -62,6 +63,7 @@ const LoadAssets = ({ assets, fonts, children }: LoadAssetsProps) => {
 		}
 	}, [isNavigationReady])
 
+	// @ts-ignore
 	const onStateChange = useCallback(
 		async (state) =>
 			await AsyncStorage.setItem(
@@ -75,8 +77,10 @@ const LoadAssets = ({ assets, fonts, children }: LoadAssetsProps) => {
 		return <AppLoading />
 	}
 
+	//  {...{ onStateChange, initialState }}
+
 	return (
-		<NavigationContainer {...{ onStateChange, initialState }}>
+		<NavigationContainer>
 			<StatusBar />
 			{children}
 		</NavigationContainer>
