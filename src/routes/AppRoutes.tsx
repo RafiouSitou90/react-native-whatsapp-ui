@@ -1,19 +1,20 @@
+import {
+	Feather,
+	MaterialCommunityIcons,
+	MaterialIcons,
+} from "@expo/vector-icons"
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs"
 import { createStackNavigator } from "@react-navigation/stack"
 import Constants from "expo-constants"
+import { StatusBar } from "expo-status-bar"
 import React, { useEffect, useState } from "react"
-import { Dimensions } from "react-native"
-import { MaterialIcons, Feather } from "@expo/vector-icons"
 import { BorderlessButton } from "react-native-gesture-handler"
 
 import { Call, Chat, Loading, Status } from "../pages"
 import { Camera } from "../pages/Home"
-import { Box, useTheme, Text } from "../theme"
+import { Box, Text, useTheme } from "../theme"
 import AuthStackNavigator from "./AuthRoutes"
 import { AppRoutes, AppTabRoutes } from "./Navigation"
-import { StatusBar } from "expo-status-bar"
-
-const { height } = Dimensions.get("window")
 
 const AppStack = createStackNavigator<AppRoutes>()
 
@@ -35,8 +36,11 @@ const AppTabNavigator = () => {
 
 	return (
 		<AppTab.Navigator
+			initialRouteName="Chat"
 			tabBarOptions={{
-				style: { backgroundColor: theme.colors.secondary },
+				style: {
+					backgroundColor: theme.colors.secondary,
+				},
 				scrollEnabled: false,
 				labelStyle: {
 					fontSize: 14,
@@ -49,7 +53,19 @@ const AppTabNavigator = () => {
 				},
 			}}
 		>
-			<AppTab.Screen name="Camera" component={Camera} />
+			<AppTab.Screen
+				name="Camera"
+				component={Camera}
+				options={{
+					tabBarLabel: ({ color }) => (
+						<MaterialCommunityIcons
+							name="camera"
+							color={color}
+							size={24}
+						/>
+					),
+				}}
+			/>
 			<AppTab.Screen name="Chat" component={Chat} />
 			<AppTab.Screen name="Status" component={Status} />
 			<AppTab.Screen name="Call" component={Call} />
@@ -76,23 +92,26 @@ const AppContainer = () => {
 			) : user ? (
 				<Box flex={1}>
 					<Box
-						height={height * 0.1}
+						height={85}
 						backgroundColor="secondary"
 						style={{
-							paddingTop: Constants.statusBarHeight + 10,
+							paddingTop: Constants.statusBarHeight,
 						}}
+						justifyContent="center"
 					>
 						<Box
-							marginHorizontal="s"
+							marginHorizontal="xs"
 							flexDirection="row"
-							alignItems="center"
+							alignItems="flex-start"
 							justifyContent="space-between"
+							paddingVertical="xs"
 						>
 							<Box>
 								<Text
-									fontSize={20}
-									fontWeight="800"
+									fontSize={18}
+									fontWeight="bold"
 									color="mainBackground"
+									style={{ paddingLeft: 10 }}
 								>
 									WhatsApp
 								</Text>
@@ -102,7 +121,7 @@ const AppContainer = () => {
 								justifyContent="space-between"
 								alignItems="center"
 							>
-								<Box marginRight="s">
+								<Box marginRight="xs">
 									<BorderlessButton
 										rippleColor={theme.colors.info}
 										onPress={() => true}
@@ -128,7 +147,7 @@ const AppContainer = () => {
 										<Feather
 											name="more-vertical"
 											color="white"
-											size={20}
+											size={22}
 										/>
 									</BorderlessButton>
 								</Box>
