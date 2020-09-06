@@ -9,7 +9,7 @@ const Chat = () => {
 			alignItems="center"
 			backgroundColor="mainBackground"
 		>
-			<Text>Camera</Text>
+			<Text>Chat</Text>
 		</Box>
 	)
 }

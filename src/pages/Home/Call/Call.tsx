@@ -9,7 +9,7 @@ const Call = () => {
 			alignItems="center"
 			backgroundColor="mainBackground"
 		>
-			<Text>Camera</Text>
+			<Text>Call</Text>
 		</Box>
 	)
 }

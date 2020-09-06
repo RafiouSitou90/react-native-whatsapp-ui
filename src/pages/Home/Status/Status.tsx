@@ -9,7 +9,7 @@ const Status = () => {
 			alignItems="center"
 			backgroundColor="mainBackground"
 		>
-			<Text>Camera</Text>
+			<Text>Status</Text>
 		</Box>
 	)
 }
